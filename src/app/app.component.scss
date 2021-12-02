@@ -1,6 +1,6 @@
 $primary-color: blue;
 $secondary-color: green;
-$border-color: orange;
+$border-color: darken(orange, 10%);
 
 //mixins
 @mixin text-border($clr) {
