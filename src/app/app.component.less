@@ -1,0 +1,31 @@
+@primary-color: blue;
+@secondary-color: green;
+@border-color: orange;
+
+.text-border(@clr, @bor) {
+  border: 1px solid green;
+  border: @bor if(boolean(@bor > 5), solid, dotted) @clr;
+}
+
+.loop-test(@count ) when (@count <5) {
+  // @va: 'col-'+'@{}';
+  // @{va}{
+  //   background-color: red;
+  // }
+  // .cont((@count + 1 ));
+  // width: (25px * @count);
+}
+
+.common-text {
+  font-weight: bold;
+}
+
+p {
+  color: @primary-color;
+  .text-border(@border-color,5px);
+  &:extend(.common-text);
+}
+
+.user {
+  .loop-test(2);
+}

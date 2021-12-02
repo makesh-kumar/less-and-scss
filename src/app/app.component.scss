@@ -1,0 +1,42 @@
+$primary-color: blue;
+$secondary-color: green;
+$border-color: orange;
+
+//mixins
+@mixin text-border($clr) {
+  border: 1px solid $clr;
+}
+
+//functions
+@function cal-border-width($num1, $num2) {
+  $result: 1;
+  $result: $num1 * $num2;
+  @return $result;
+}
+
+//inheritance
+.common-text {
+  font-weight: bold;
+}
+
+//looping and condition
+.loop-test {
+  @for $i from 1 through 5 {
+    @if $i % 2 == 0 {
+      .col-#{$i} {
+        color: red;
+      }
+    }
+  }
+}
+
+p {
+  color: $secondary-color;
+  @include text-border($border-color);
+  @extend .common-text;
+  border-width: cal_border-width(2px, 3);
+}
+
+.user {
+  @extend .loop-test;
+}
